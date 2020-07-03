@@ -12,15 +12,22 @@ Goal of the sample application is to demonstrate capabilities of Hazelcast.
 To Build:
 __________
 
-./mvnw install or
-build.sh
+`build.sh`
 
-To Run:
+***To Start the Hazelcast Cluster***
+
+`startMemberNodes.sh`
+
+
+To Launch the Web application:
 ________
 
-./mvnw spring-boot:run
+`run.sh`
 
-or run.sh
+*To Test the web application:*
+
+`test.sh`
+
 
 
 

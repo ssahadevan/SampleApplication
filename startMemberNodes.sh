@@ -1,0 +1,2 @@
+# This script will launch a 3 node Hazelcast cluster
+java -classpath /Users/sharathsahadevan/Documents/GitHub/SampleApplication/target/classes:/Users/sharathsahadevan/.m2/repository/com/hazelcast/hazelcast/4.0.1/hazelcast-4.0.1.jar com.ss.hazelcast.SampleApplication.Util.HazelcastMember
