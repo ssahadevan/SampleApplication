@@ -1,15 +1,15 @@
 package com.ss.hazelcast.SampleApplication;
 
 public class Product {
-    private final long id;
+    private final String id;
     private final String name;
 
-    public Product(long id, String name) {
+    public Product(String id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 

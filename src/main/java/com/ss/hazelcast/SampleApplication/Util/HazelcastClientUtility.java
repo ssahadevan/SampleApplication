@@ -4,6 +4,8 @@ import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.map.IMap;
+import com.ss.hazelcast.SampleApplication.Product;
+
 import java.util.Collection;
 import java.util.concurrent.BlockingQueue;
 
@@ -32,12 +34,15 @@ public class HazelcastClientUtility {
         myMap.put(key, value);
     }
 
-    public Object put(String nameOfMap , String key ) {
+    /*
+    public Object get(String nameOfMap , String key ) {
         IMap<String, Object> myMap = client.getMap( nameOfMap );
         Object value = myMap.get(key) ;
         System.out.println("value is " + String.valueOf(value));
         return ( value );
     }
+
+     */
 
     public static void main(String[] args) throws Exception {
         ClientConfig clientConfig = new ClientConfig();
@@ -76,5 +81,13 @@ public class HazelcastClientUtility {
         }
 
         HazelcastClient.shutdownAll();
+    }
+
+    public Product get(String nameOfMap, String key) {
+        IMap<String, String> myMap = client.getMap( nameOfMap );
+        Object value = myMap.get(key) ;
+        System.out.println("value is " + String.valueOf(value));
+        Product product = new Product( key , value.toString() );
+        return (product );
     }
 }
