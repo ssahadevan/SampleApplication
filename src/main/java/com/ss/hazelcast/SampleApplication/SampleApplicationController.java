@@ -32,8 +32,8 @@ public class SampleApplicationController {
         return message ; //view
     }
 
-
-    @GetMapping("/products/{id}")
+    /* Get a Specific Key */
+    @GetMapping("/product/{id}")
     public Product getProduct( @PathVariable String id ) {
        // template="Product is ";
         HazelcastClientUtility hazelcastClientUtility = new HazelcastClientUtility();
@@ -44,7 +44,19 @@ public class SampleApplicationController {
         return product;
     }
 
-    @PostMapping("/products")
+    /* Get the count of  Products */
+    @GetMapping("/product/count")
+    public int getProductCount() {
+        // template="Product is ";
+        HazelcastClientUtility hazelcastClientUtility = new HazelcastClientUtility();
+
+        // Product product=  new Product(counter.incrementAndGet(), String.format(template, name));
+        return  hazelcastClientUtility.getSize("Product" );
+
+        // return value;
+    }
+
+    @PostMapping("/product")
     public Product newProduct(@RequestBody Product newProduct) {
         // template="Product is ";
         System.out.println("In product") ;

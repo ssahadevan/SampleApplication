@@ -22,7 +22,13 @@ do
     #echo $var1$i$var2$i$var3
     var4=$var1'"'$i'"'$var2$currentProductName$var3
     echo var4 is $var4
-    curl -X POST http://localhost:8081/products -H 'Content-type:application/json' -d $var4
+    curl -X POST http://localhost:8081/product -H 'Content-type:application/json' -d $var4
 
     ((i = i + 1))
 done
+
+echo " "
+echo " Number Of Products is : "
+curl -X GET  http://localhost:8081/product/count
+echo " "
+echo "***  Script completed ***"

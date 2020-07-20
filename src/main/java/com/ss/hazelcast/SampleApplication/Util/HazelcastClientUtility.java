@@ -90,4 +90,12 @@ public class HazelcastClientUtility {
         Product product = new Product( key , value.toString() );
         return (product );
     }
+
+    public int getSize(String nameOfMap ) {
+        IMap<String, String> myMap = client.getMap( nameOfMap );
+        int size = myMap.size() ;
+        System.out.println("Map size is " + size);
+        //Product product = new Product( key , value.toString() );
+        return ( size );
+    }
 }
