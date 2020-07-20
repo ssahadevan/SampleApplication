@@ -29,7 +29,7 @@ public class SampleApplicationController {
         model.addAttribute("message", message);
         model.addAttribute("tasks", tasks);
         System.out.println("Message is " + message );
-        return "welcome - Message is " + message ; //view
+        return message ; //view
     }
 
 
