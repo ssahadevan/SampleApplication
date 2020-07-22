@@ -1,19 +1,27 @@
 package com.ss.hazelcast.SampleApplication;
 
-public class Order {
-    private final long id;
-    private final String content;
+import java.util.List;
 
-    public Order(long id, String content) {
+public class Order {
+    private final String id;
+    private final String description;
+    private List<Item> items;
+
+    public Order(String id, String description, List<Item> items) {
         this.id = id;
-        this.content = content;
+        this.description = description;
+        this.items= items;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public String getContent() {
-        return content;
+    public String getDescription() {
+        return description;
+    }
+
+    public List<Item> getItems() {
+        return items;
     }
 }

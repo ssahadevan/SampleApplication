@@ -18,3 +18,6 @@ curl -X GET  http://localhost:8081/product/1
 
 echo " Number Of Products is : "
 curl -X GET  http://localhost:8081/product/count
+
+echo " get order/1"
+curl -X GET http://localhost:8081/order/1

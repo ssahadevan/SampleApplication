@@ -98,4 +98,15 @@ public class HazelcastClientUtility {
         //Product product = new Product( key , value.toString() );
         return ( size );
     }
+
+    /*
+    public Order get(String nameOfMap, String key) {
+        IMap<String, String> myMap = client.getMap( nameOfMap );
+        Object value = myMap.get(key) ;
+        System.out.println("value is " + String.valueOf(value));
+        Order order = new Order( key , value.toString() );
+        return ( order );
+    }
+
+     */
 }
