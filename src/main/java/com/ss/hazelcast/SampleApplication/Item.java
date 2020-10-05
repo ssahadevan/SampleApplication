@@ -1,6 +1,8 @@
 package com.ss.hazelcast.SampleApplication;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable {
     private final String id;
     private final String name;
     private final double price;
