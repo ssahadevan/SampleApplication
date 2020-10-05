@@ -17,13 +17,25 @@ public class OrderControlller {
         // template="Order is ";
         HazelcastClientUtility hazelcastClientUtility = new HazelcastClientUtility();
 
-        // Product product=  new Product(counter.incrementAndGet(), String.format(template, name));
+        // Order Order=  new Order(counter.incrementAndGet(), String.format(template, name));
         Item item= new Item("1", "itemOne", 10.50);
         List items = new ArrayList();
         items.add(item);
         Order order= new Order ("1", "firstOrder", items);
-       //  Order order = hazelcastClientUtility.get("Order", id  );
+        hazelcastClientUtility.put("Order",
+                String.valueOf( order.getId() ), order );
 
         return order;
+    }
+
+    /* Get the count of  Orders */
+    @GetMapping("/order/count")
+    public int getOrderCount() {
+
+        HazelcastClientUtility hazelcastClientUtility = new HazelcastClientUtility();
+
+        return  hazelcastClientUtility.getSize("Order" );
+
+        // return value;
     }
 }

@@ -12,6 +12,9 @@ import java.util.concurrent.BlockingQueue;
 public class HazelcastClientUtility {
     private static String localAddress = "127.0.0.1";
     private HazelcastInstance client=null ;
+    private String nameOfMap;
+    private String key;
+    private Object value;
 
     public HazelcastClientUtility() {
         ClientConfig clientConfig = new ClientConfig();
@@ -30,6 +33,14 @@ public class HazelcastClientUtility {
     }
 
     public void put(String nameOfMap , String key , String value) {
+        IMap<String, Object> myMap = client.getMap( nameOfMap );
+        myMap.put(key, value);
+    }
+
+    public void put(String nameOfMap , String key , Object value) {
+        this.nameOfMap = nameOfMap;
+        this.key = key;
+        this.value = value;
         IMap<String, Object> myMap = client.getMap( nameOfMap );
         myMap.put(key, value);
     }
