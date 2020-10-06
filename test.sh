@@ -24,3 +24,6 @@ curl -X GET http://localhost:8081/order/1
 
 echo " get Number of Orders"
 curl -X GET http://localhost:8081/order/count
+
+curl http://localhost:8081/payments
+

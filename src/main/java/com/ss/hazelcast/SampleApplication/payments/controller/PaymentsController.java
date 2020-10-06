@@ -1,5 +1,4 @@
-package com.ss.hazelcast.SampleApplication;
-
+package com.ss.hazelcast.SampleApplication.payments.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,9 +7,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+
+
 // @RestController
 @Controller
-public class GreetingController {
+public class PaymentsController {
 
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
@@ -22,12 +23,13 @@ public class GreetingController {
     */
 
 
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(value = "name", defaultValue = "World") String name, Model model) {
+    @GetMapping("/payments")
+    public String payments(@RequestParam(value = "name", defaultValue = "World") String name, Model model) {
 
         model.addAttribute( "name" , name );
-        Greeting greeting = new Greeting(counter.incrementAndGet(), String.format(template, name))  ;
-        model.addAttribute("greeting" , greeting);
-        return "greeting";
+        // Greeting greeting = new Greeting(counter.incrementAndGet(), String.format(template, name))  ;
+        // model.addAttribute("greeting" , greeting);
+        return "payments";
     }
 }
+
