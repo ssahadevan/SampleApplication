@@ -34,7 +34,8 @@ do
 done
 
 echo " "
-echo " Number Of Products is : "
+echo " Number Of Persons is : "
 curl -X GET  http://localhost:8081/person/count
 echo " "
 echo "***  Script completed ***"
+

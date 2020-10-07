@@ -1,5 +1,7 @@
 package com.ss.hazelcast.SampleApplication.payments.controller;
 
+import com.ss.hazelcast.SampleApplication.Util.HazelcastClientUtility;
+import com.ss.hazelcast.SampleApplication.payments.dao.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +32,17 @@ public class PaymentsController {
         // Greeting greeting = new Greeting(counter.incrementAndGet(), String.format(template, name))  ;
         // model.addAttribute("greeting" , greeting);
         return "payments";
+    }
+
+    @GetMapping("/payments/persons")
+    public String persons(@RequestParam(value = "id", defaultValue = "1") long id, Model model) {
+        model.addAttribute( "id" , id );
+        HazelcastClientUtility hazelcastClientUtility = new HazelcastClientUtility();
+        Person person=(Person) hazelcastClientUtility.get("Person", String.valueOf(id) );
+        model.addAttribute( "Person" , person );
+        model.addAttribute("firstName", person.getFirstName());
+        model.addAttribute("lastName", person.getLastName());
+        return "persons";
     }
 }
 
