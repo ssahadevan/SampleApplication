@@ -27,9 +27,12 @@ ________
 #### *To Test the web application:*
 
 `test.sh`
-'testMany.sh' - Creates multiple Products
-'testPerson.sh' - Creates one Person and validates that it exists.
-'addPersons.sh' - Adds many persons to the Hazelcast map.
+`testMany.sh` - Creates multiple Products
+`testPerson.sh` - Creates one Person and validates that it exists.
+
+#### * Data Generation * 
+
+`addPersons.sh` - Adds many persons to the Hazelcast map.
 
 
 
