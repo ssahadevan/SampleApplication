@@ -30,7 +30,7 @@ ________
 `testMany.sh` - Creates multiple Products
 `testPerson.sh` - Creates one Person and validates that it exists.
 
-#### * Data Generation * 
+#### *Data Generation* 
 
 `addPersons.sh` - Adds many persons to the Hazelcast map.
 

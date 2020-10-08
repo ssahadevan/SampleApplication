@@ -6,6 +6,7 @@ import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.map.IMap;
 
 import java.util.Collection;
+import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 
 public class HazelcastClientUtility {
@@ -106,6 +107,17 @@ public class HazelcastClientUtility {
          */
         return ( value );
     }
+
+    public Map getAll( String nameOfMap ) {
+        Map<String, String> map = client.getMap(nameOfMap);
+        /*
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        }
+
+         */
+        return map;
+        }
 
     public int getSize(String nameOfMap ) {
         IMap<String, String> myMap = client.getMap( nameOfMap );

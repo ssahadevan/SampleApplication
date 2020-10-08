@@ -44,5 +44,19 @@ public class PaymentsController {
         model.addAttribute("lastName", person.getLastName());
         return "persons";
     }
+
+    /*
+    @GetMapping("/payments/transactions")
+    public String transactions(@RequestParam(value = "id", defaultValue = "1") long id, Model model) {
+        model.addAttribute( "id" , id );
+        //HazelcastClientUtility hazelcastClientUtility = new HazelcastClientUtility();
+        //Transaction transaction=(Transaction) hazelcastClientUtility.get("Transaction", String.valueOf(id) );
+        model.addAttribute( "date" , "01/28/2020" );
+        model.addAttribute("merchantName", "BBY");
+        model.addAttribute("amount", "255.12");
+        return "transactions";
+    }
+    */
+
 }
 

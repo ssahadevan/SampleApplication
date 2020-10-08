@@ -3,6 +3,7 @@ package com.ss.hazelcast.SampleApplication.payments.dao;
 import java.util.Date;
 
 public class Transaction {
+    private long id ;
     private Date txndate;
     private long accountId;
     private Person person;
@@ -10,7 +11,7 @@ public class Transaction {
     private String currency;
     private Merchant merchant;
 
-    public void Transaction ( Date txndate
+    public void Transaction ( long id, Date txndate
             , long accountId
             , Person person
             , double amount
@@ -18,6 +19,7 @@ public class Transaction {
             , Merchant merchant
     )
     {
+        this.id=id;
         this.txndate=txndate;
         this.accountId=accountId;
         this.person=person;
