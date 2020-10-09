@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Utility Lists</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<th:block th:if="${#lists.isEmpty(transactions)}">List of transactions is empty</th:block>
+
+<h1>List of Transactions (number of transactions: <th:block th:text="${#lists.size(transactions)}">100</th:block>)</h1>
+<table>
+    <tr>
+        <th>No</th>
+        <th>Date</th>
+        <th>Merchant Name</th>
+        <th>Amount</th>
+    </tr>
+    <tr th:each="transaction, stat : ${transactions}">
+        <td th:text="${stat.index + 1}">1</td>
+        <td th:text="${transaction.date}">03/22/2020</td>
+        <td th:text="${transaction.merchantName}">WMT</td>
+        <td th:text="${transaction.amount}">12221</td>
+    </tr>
+</table>
+</body>
+</html>

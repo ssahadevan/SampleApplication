@@ -1,15 +1,14 @@
 package com.ss.hazelcast.SampleApplication;
 
 
+import com.ss.hazelcast.SampleApplication.Util.HazelcastClientUtility;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
-
-import com.ss.hazelcast.SampleApplication.Util.HazelcastClientUtility;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -39,7 +38,7 @@ public class SampleApplicationController {
         HazelcastClientUtility hazelcastClientUtility = new HazelcastClientUtility();
 
         // Product product=  new Product(counter.incrementAndGet(), String.format(template, name));
-        Product product = hazelcastClientUtility.get("Product", id  );
+        Product product = ( Product) hazelcastClientUtility.get("Product", id  );
 
         return product;
     }

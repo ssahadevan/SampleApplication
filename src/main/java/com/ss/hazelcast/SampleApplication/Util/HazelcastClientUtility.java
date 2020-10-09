@@ -4,9 +4,9 @@ import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.map.IMap;
-import com.ss.hazelcast.SampleApplication.Product;
 
 import java.util.Collection;
+import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 
 public class HazelcastClientUtility {
@@ -94,13 +94,30 @@ public class HazelcastClientUtility {
         HazelcastClient.shutdownAll();
     }
 
-    public Product get(String nameOfMap, String key) {
+    public Object get(String nameOfMap, String key) {
         IMap<String, String> myMap = client.getMap( nameOfMap );
         Object value = myMap.get(key) ;
         System.out.println("value is " + String.valueOf(value));
-        Product product = new Product( key , value.toString() );
-        return (product );
+        /*
+        if ( nameOfMap.equalsIgnoreCase("Product"))
+            Product product = new Product( key , value.toString() );
+        else if (nameOfMap.equalsIgnoreCase("Person"))
+            Person person= new
+
+         */
+        return ( value );
     }
+
+    public Map getAll( String nameOfMap ) {
+        Map<String, String> map = client.getMap(nameOfMap);
+        /*
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        }
+
+         */
+        return map;
+        }
 
     public int getSize(String nameOfMap ) {
         IMap<String, String> myMap = client.getMap( nameOfMap );
