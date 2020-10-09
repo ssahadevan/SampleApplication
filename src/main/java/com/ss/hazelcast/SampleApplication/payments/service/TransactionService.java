@@ -4,6 +4,7 @@ import com.ss.hazelcast.SampleApplication.Util.HazelcastClientUtility;
 import com.ss.hazelcast.SampleApplication.payments.model.Transaction;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -14,12 +15,16 @@ public class TransactionService {
     public List<Transaction> generateTransactionList() {
 
         HazelcastClientUtility hazelcastClientUtility = new HazelcastClientUtility();
-        Map<String, Transaction> map = hazelcastClientUtility.getAll("Transaction");
+        Map<String, Transaction> txnMap = hazelcastClientUtility.getAll("Transaction");
 
-        for (Map.Entry<String, Transaction> entry : map.entrySet()) {
+        for (Map.Entry<String, Transaction> entry : txnMap.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
         }
 
+        ArrayList<Transaction> listOfTxns = new ArrayList<Transaction>(txnMap.values());
+        return listOfTxns;
+
+        /*
         return Arrays.asList(Transaction.builder()
                         .id(1)
                         .date("01/20/2020")
@@ -38,6 +43,8 @@ public class TransactionService {
                         .amount(33.00)
                         .merchantName("AMZN")
                         .build() );
+
+         */
 
     }
 
