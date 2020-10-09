@@ -1,3 +1,17 @@
+body {
+    background: lightyellow;
+    font: 18px Arial, sans-serif;
+}
+h1 {
+    color: orange;
+}
 h4 {
    color: red;
+}
+table {
+  border-collapse: collapse;
+}
+
+table, td, th {
+  border: 1px solid black;
 }
