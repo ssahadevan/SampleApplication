@@ -30,6 +30,7 @@ public class TransactionController {
         return "transactions";
     }
 
+
     /* Adds a Transaction */
     @PostMapping("transactions")
     public String transactions(@RequestBody Transaction transaction, Model model) {

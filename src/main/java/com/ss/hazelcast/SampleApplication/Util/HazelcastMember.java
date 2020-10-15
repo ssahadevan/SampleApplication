@@ -1,23 +1,9 @@
 package com.ss.hazelcast.SampleApplication.Util;
 
-import com.hazelcast.cluster.Member;
-        import com.hazelcast.config.Config;
-        import com.hazelcast.config.RestApiConfig;
-        import com.hazelcast.config.RestEndpointGroup;
-        import com.hazelcast.core.DistributedObject;
-        import com.hazelcast.core.DistributedObjectListener;
-        import com.hazelcast.core.Hazelcast;
-        import com.hazelcast.core.HazelcastInstance;
-        import com.hazelcast.map.IMap;
-
-        import java.util.Collection;
-        import com.hazelcast.cluster.Member;
-        import com.hazelcast.config.Config;
-        import com.hazelcast.core.*;
-        import com.hazelcast.map.IMap;
-        import com.hazelcast.core.DistributedObjectListener;
-
-        import java.util.Collection;
+import com.hazelcast.config.ClasspathXmlConfig;
+import com.hazelcast.config.Config;
+import com.hazelcast.core.Hazelcast;
+import com.hazelcast.core.HazelcastInstance;
 
 public class HazelcastMember {
 
@@ -40,6 +26,7 @@ public class HazelcastMember {
 
     public static void main(String[] args) {
         // com.ss.ExampleDOL example = new com.ss.ExampleDOL();
+        /* Shows Programatic config.
         Config config = new Config();
         config.getManagementCenterConfig().setScriptingEnabled(true);
         RestApiConfig restApiConfig = new RestApiConfig()
@@ -51,7 +38,8 @@ public class HazelcastMember {
                 .enableGroups(RestEndpointGroup.HEALTH_CHECK)
                 ;
         config.getNetworkConfig().setRestApiConfig(restApiConfig);
-
+        */
+        Config config = new ClasspathXmlConfig("hazelcast.xml");
         HazelcastInstance node1 = Hazelcast.newHazelcastInstance(config);
         HazelcastInstance node2 = Hazelcast.newHazelcastInstance(config);
         HazelcastInstance node3 = Hazelcast.newHazelcastInstance(config);

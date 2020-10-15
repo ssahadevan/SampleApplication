@@ -3,6 +3,7 @@ package com.ss.hazelcast.SampleApplication.payments.service;
 import com.ss.hazelcast.SampleApplication.Util.HazelcastClientUtility;
 import com.ss.hazelcast.SampleApplication.payments.model.Transaction;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,10 +13,19 @@ import java.util.Map;
 @Service
 public class TransactionService {
 
+    private HazelcastClientUtility hazelcastClientUtility;
+    private String transactionMap = "TransactionMap";
+
+    public TransactionService() {
+        hazelcastClientUtility = null;
+    }
+
     public List<Transaction> generateTransactionList() {
 
-        HazelcastClientUtility hazelcastClientUtility = new HazelcastClientUtility();
-        Map<String, Transaction> txnMap = hazelcastClientUtility.getAll("Transaction");
+        if ( hazelcastClientUtility == null ) {
+            hazelcastClientUtility = new HazelcastClientUtility();
+        }
+        Map<String, Transaction> txnMap = hazelcastClientUtility.getAll(transactionMap);
 
         for (Map.Entry<String, Transaction> entry : txnMap.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
@@ -24,36 +34,28 @@ public class TransactionService {
         ArrayList<Transaction> listOfTxns = new ArrayList<Transaction>(txnMap.values());
         return listOfTxns;
 
-        /*
-        return Arrays.asList(Transaction.builder()
-                        .id(1)
-                        .date("01/20/2020")
-                        .amount(5000.00)
-                        .merchantName("BBY")
-                        .build(),
-                Transaction.builder()
-                        .id(2)
-                        .date("01/20/2020")
-                        .amount(100.00)
-                        .merchantName("BBY")
-                        .build(),
-                Transaction.builder()
-                        .id(3)
-                        .date("12/20/2019")
-                        .amount(33.00)
-                        .merchantName("AMZN")
-                        .build() );
-
-         */
-
     }
 
     public boolean create(Transaction txn)
     {
-        HazelcastClientUtility hazelcastClientUtility = new HazelcastClientUtility();
-        hazelcastClientUtility.put("Transaction"
+
+        if ( hazelcastClientUtility == null ) {
+            hazelcastClientUtility = new HazelcastClientUtility();
+        }
+        hazelcastClientUtility.put(transactionMap
                            , String.valueOf(txn.getId())
                            , txn );
         return true ;
+    }
+
+    /* Get the count of  Transactions */
+    public int getTransactionsCount() {
+
+        if ( hazelcastClientUtility == null ) {
+            hazelcastClientUtility = new HazelcastClientUtility();
+        }
+
+        return hazelcastClientUtility.getSize(transactionMap) ;
+
     }
 }

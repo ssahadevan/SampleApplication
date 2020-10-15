@@ -29,3 +29,14 @@ target/SampleApplication-0.0.1-SNAPSHOT.jar.original
 target/SampleApplication-0.0.1-SNAPSHOT.jar.original
 target/surefire-reports/com.ss.hazelcast.SampleApplication.SampleApplicationTests.txt
 target/surefire-reports/TEST-com.ss.hazelcast.SampleApplication.SampleApplicationTests.xml
+.idea/libraries/Maven__com_hazelcast_hazelcast_4_0_3.xml
+.idea/libraries/Maven__com_google_guava_guava_19_0.xml
+.idea/libraries/Maven__com_hazelcast_hazelcast_4_0_3.xml
+.idea/libraries/Maven__org_apache_calcite_avatica_avatica_core_1_16_0.xml
+.idea/libraries/Maven__org_apache_calcite_calcite_core_1_23_0.xml
+.idea/libraries/Maven__org_apache_calcite_calcite_linq4j_1_23_0.xml
+.idea/libraries/Maven__org_apache_commons_commons_lang3_3_10.xml
+.idea/libraries/Maven__org_codehaus_janino_commons_compiler_3_1_2.xml
+.idea/libraries/Maven__org_codehaus_janino_janino_3_1_2.xml
+.idea/libraries/Maven__org_projectlombok_lombok_1_18_14.xml
+SampleApplication.iml

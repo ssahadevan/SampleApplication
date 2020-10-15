@@ -26,13 +26,20 @@ ________
 
 #### *To Test the web application:*
 
+Scripts are in bin directory
 `test.sh`
 `testMany.sh` - Creates multiple Products
 `testPerson.sh` - Creates one Person and validates that it exists.
+`testTransactions.sh` - Creates 2 Transactions
 
 #### *Data Generation* 
-
+`addTransactions.sh` - Adds many transactions to the Hazelcast Map
 `addPersons.sh` - Adds many persons to the Hazelcast map.
+
+
+The transactions can be viewed at 
+http://localhost:8081/transactions
+
 
 
 
