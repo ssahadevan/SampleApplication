@@ -43,8 +43,24 @@ public class HazelcastMember {
         HazelcastInstance node1 = Hazelcast.newHazelcastInstance(config);
         HazelcastInstance node2 = Hazelcast.newHazelcastInstance(config);
         HazelcastInstance node3 = Hazelcast.newHazelcastInstance(config);
+        /* Use this to validate the member is connected to Mongo
+        IMap<String, Supplement> supplements = node1.getMap("supplements");
+        System.out.println(supplements.size());
 
+        supplements.set("4", new Supplement("bcaa", 10));
+        supplements.set("5", new Supplement("protein", 100));
+        supplements.set("6", new Supplement("glucosamine", 200));
 
+        System.out.println(supplements.size());
+
+        supplements.evictAll();
+
+        System.out.println(supplements.size());
+
+        supplements.loadAll(true);
+
+        System.out.println(supplements.size());
+        */
         System.out.printf("Hazelcast Cluster is up and running");
     }
 

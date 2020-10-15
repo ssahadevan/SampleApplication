@@ -5,9 +5,7 @@ import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.map.IMap;
 
-import java.util.Collection;
 import java.util.Map;
-import java.util.concurrent.BlockingQueue;
 
 public class HazelcastClientUtility {
     private static String localAddress = "127.0.0.1";
@@ -45,15 +43,6 @@ public class HazelcastClientUtility {
         myMap.put(key, value);
     }
 
-    /*
-    public Object get(String nameOfMap , String key ) {
-        IMap<String, Object> myMap = client.getMap( nameOfMap );
-        Object value = myMap.get(key) ;
-        System.out.println("value is " + String.valueOf(value));
-        return ( value );
-    }
-
-     */
 
     public static void main(String[] args) throws Exception {
         ClientConfig clientConfig = new ClientConfig();
@@ -61,35 +50,51 @@ public class HazelcastClientUtility {
 
 
         HazelcastInstance client = HazelcastClient.newHazelcastClient(clientConfig);
-        System.out.println(clientConfig.toString());
+        // System.out.println(clientConfig.toString());
 
-        BlockingQueue<String> queue = client.getQueue("queue");
-        queue.put("Hello!");
-        System.out.println("Message sent by Hazelcast Client!");
+        IMap<String, Supplement> supplements = client.getMap("supplements");
 
-
-        IMap<String, Object> myMap = client.getMap("myMap");
-        myMap.put("1", "Sharath");
-
-        System.out.println("myMap value is " + myMap.get("1")) ;
-
-        myMap.lock("1");
-
-        try
-        {
-            // critical section code.
-
-
-            Collection distributedObjects = client.getDistributedObjects();
-
-            distributedObjects.forEach(
-                    distributedObject->System.out.println(distributedObject));
-
+        System.out.println("Supplements Size=" +  supplements.size());
+        try {
+            supplements.put("1", new Supplement("bcaa_1", 10));
+            supplements.put("2", new Supplement("protein_2", 100));
+            supplements.put("3", new Supplement("glucosamine_3", 200));
+            supplements.put("4", new Supplement("bcaa_4", 10));
+            supplements.put("5", new Supplement("protein_5", 100));
+            supplements.put("6", new Supplement("glucosamine_6", 200));
+            supplements.put("7", new Supplement("vitaminD_7", 200));
         }
-        finally
+        catch (Exception e )
         {
-            myMap.unlock("1");
+            e.printStackTrace();
         }
+
+        System.out.println(supplements.size());
+
+        supplements.evictAll();
+
+        System.out.println(supplements.size());
+
+        supplements.loadAll(true);
+
+        System.out.println(supplements.size());
+        Supplement supplement=null;
+
+        IMap<String, Supplement> supplementMap = client.getMap("supplements");
+        for ( int k=1; k<= supplements.size() ; k++)
+        {
+            supplement = supplementMap.get(String.valueOf(k));
+            if ( supplement != null) {
+                System.out.println("Supplement is " + supplement.getName()
+                        + ", price =" + supplement.getPrice());
+            }
+        }
+        int size=supplements.size();
+        for ( int i=1; i <= size ; i++) {
+            System.out.println("Deleting " + i );
+            supplements.delete(String.valueOf(i));
+        }
+
 
         HazelcastClient.shutdownAll();
     }
@@ -98,13 +103,7 @@ public class HazelcastClientUtility {
         IMap<String, String> myMap = client.getMap( nameOfMap );
         Object value = myMap.get(key) ;
         System.out.println("value is " + String.valueOf(value));
-        /*
-        if ( nameOfMap.equalsIgnoreCase("Product"))
-            Product product = new Product( key , value.toString() );
-        else if (nameOfMap.equalsIgnoreCase("Person"))
-            Person person= new
 
-         */
         return ( value );
     }
 
@@ -127,14 +126,5 @@ public class HazelcastClientUtility {
         return ( size );
     }
 
-    /*
-    public Order get(String nameOfMap, String key) {
-        IMap<String, String> myMap = client.getMap( nameOfMap );
-        Object value = myMap.get(key) ;
-        System.out.println("value is " + String.valueOf(value));
-        Order order = new Order( key , value.toString() );
-        return ( order );
-    }
 
-     */
 }

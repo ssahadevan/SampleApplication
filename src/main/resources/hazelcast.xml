@@ -62,7 +62,18 @@
         </hot-restart>
     </map>
    -->
-
-
-
+    <!--
+        For development purposes, MongoDB should be installed locally according to this manual
+        https://docs.mongodb.org/manual/installation/
+    -->
+    <map name="supplements">
+        <map-store enabled="true" initial-mode="LAZY">
+            <class-name>com.ss.hazelcast.SampleApplication.Util.MongoMapStore</class-name>
+            <properties>
+                <property name="mongo.url">mongodb://localhost:27017</property>
+                <property name="mongo.db">test</property>
+                <property name="mongo.collection">supplements</property>
+            </properties>
+        </map-store>
+    </map>
 </hazelcast>
