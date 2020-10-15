@@ -18,6 +18,9 @@ __________
 
 `startMemberNodes.sh`
 
+#### *To Start Hazelcast Client*
+`runHazelcleint.sh'`
+
 
 #### *To Launch the Web application:*
 ________
@@ -39,6 +42,11 @@ Scripts are in bin directory
 
 The transactions can be viewed at 
 http://localhost:8081/transactions
+
+#### *Integration with Mongo DB*
+
+Note the Mongo config in hazelcast.xml, pom.xml,MongoMapStore, Supplement
+
 
 
 
