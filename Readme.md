@@ -19,7 +19,7 @@ __________
 `startMemberNodes.sh`
 
 #### *To Start Hazelcast Client*
-`runHazelcleint.sh'`
+`runHazelclient.sh'
 
 
 #### *To Launch the Web application:*
@@ -46,6 +46,17 @@ http://localhost:8081/transactions
 #### *Integration with Mongo DB*
 
 Note the Mongo config in hazelcast.xml, pom.xml,MongoMapStore, Supplement
+
+#### *Check Mongo is running *
+On Mac:
+`brew services | grep -i mongo | wc -l`
+
+Should return 1 
+
+#### *Mongo Shell
+on Mac:
+mongo
+
 
 
 
