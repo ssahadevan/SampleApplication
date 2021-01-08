@@ -43,8 +43,9 @@ Scripts are in bin directory
 The transactions can be viewed at 
 http://localhost:8081/transactions
 
+ 
 #### *Integration with Mongo DB*
-
+Note: Curently commented out
 Note the Mongo config in hazelcast.xml, pom.xml,MongoMapStore, Supplement
 
 #### *Check Mongo is running *
