@@ -3,7 +3,7 @@ curl -X POST http://localhost:8081/transactions -H 'Content-type:application/jso
 
 #!/bin/bash
 START=2
-END=100
+END=1000
 ## save $START, just in case if we need it later ##
 i=$START
 var1='{"id":'

@@ -7,14 +7,14 @@ import com.hazelcast.map.IMap;
 
 import java.util.Map;
 
-public class HazelcastClientUtility {
+public class HazelcastMongoClient {
     private static String localAddress = "127.0.0.1";
     private HazelcastInstance client=null ;
     private String nameOfMap;
     private String key;
     private Object value;
 
-    public HazelcastClientUtility() {
+    public HazelcastMongoClient() {
         ClientConfig clientConfig = new ClientConfig();
         clientConfig.getNetworkConfig().addAddress(localAddress);
 
@@ -51,7 +51,7 @@ public class HazelcastClientUtility {
 
         HazelcastInstance client = HazelcastClient.newHazelcastClient(clientConfig);
         // System.out.println(clientConfig.toString());
-        /* Removed Mongo tests
+
         IMap<String, Supplement> supplements = client.getMap("supplements");
 
         System.out.println("Supplements Size=" +  supplements.size());
@@ -94,7 +94,7 @@ public class HazelcastClientUtility {
             System.out.println("Deleting " + i );
             supplements.delete(String.valueOf(i));
         }
-        */
+
 
         HazelcastClient.shutdownAll();
     }

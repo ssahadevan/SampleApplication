@@ -66,6 +66,7 @@
         For development purposes, MongoDB should be installed locally according to this manual
         https://docs.mongodb.org/manual/installation/
     -->
+    <!-- Only needed for Mongo backing store
     <map name="supplements">
         <map-store enabled="true" initial-mode="LAZY">
             <class-name>com.ss.hazelcast.SampleApplication.Util.MongoMapStore</class-name>
@@ -76,4 +77,5 @@
             </properties>
         </map-store>
     </map>
+    -->
 </hazelcast>

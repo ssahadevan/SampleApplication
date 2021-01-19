@@ -1,9 +1,8 @@
 package com.ss.hazelcast.SampleApplication.Util;
 
-import com.hazelcast.config.ClasspathXmlConfig;
-import com.hazelcast.config.Config;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
+
 
 public class HazelcastMember {
 
@@ -27,6 +26,7 @@ public class HazelcastMember {
     public static void main(String[] args) {
         // com.ss.ExampleDOL example = new com.ss.ExampleDOL();
         /* Shows Programatic config.
+
         Config config = new Config();
         config.getManagementCenterConfig().setScriptingEnabled(true);
         RestApiConfig restApiConfig = new RestApiConfig()
@@ -38,11 +38,15 @@ public class HazelcastMember {
                 .enableGroups(RestEndpointGroup.HEALTH_CHECK)
                 ;
         config.getNetworkConfig().setRestApiConfig(restApiConfig);
-        */
+
+         */
+        /* XML Config - Did not work on upgrade to 4.1
         Config config = new ClasspathXmlConfig("hazelcast.xml");
-        HazelcastInstance node1 = Hazelcast.newHazelcastInstance(config);
-        HazelcastInstance node2 = Hazelcast.newHazelcastInstance(config);
-        HazelcastInstance node3 = Hazelcast.newHazelcastInstance(config);
+
+         */
+        HazelcastInstance node1 = Hazelcast.newHazelcastInstance();
+        HazelcastInstance node2 = Hazelcast.newHazelcastInstance();
+        HazelcastInstance node3 = Hazelcast.newHazelcastInstance();
         /* Use this to validate the member is connected to Mongo
         IMap<String, Supplement> supplements = node1.getMap("supplements");
         System.out.println(supplements.size());
