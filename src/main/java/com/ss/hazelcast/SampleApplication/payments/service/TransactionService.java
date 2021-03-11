@@ -3,10 +3,8 @@ package com.ss.hazelcast.SampleApplication.payments.service;
 import com.ss.hazelcast.SampleApplication.Util.HazelcastClientUtility;
 import com.ss.hazelcast.SampleApplication.payments.model.Transaction;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -57,5 +55,9 @@ public class TransactionService {
 
         return hazelcastClientUtility.getSize(transactionMap) ;
 
+    }
+
+    public String getMapName() {
+        return transactionMap;
     }
 }

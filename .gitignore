@@ -40,3 +40,6 @@ target/surefire-reports/TEST-com.ss.hazelcast.SampleApplication.SampleApplicatio
 .idea/libraries/Maven__org_codehaus_janino_janino_3_1_2.xml
 .idea/libraries/Maven__org_projectlombok_lombok_1_18_14.xml
 SampleApplication.iml
+.idea/libraries/Maven__com_hazelcast_jet_hazelcast_jet_4_4.xml
+.idea/libraries/Maven__org_mongodb_mongo_java_driver_3_12_8.xml
+.idea/libraries/Maven__org_projectlombok_lombok_1_18_18.xml

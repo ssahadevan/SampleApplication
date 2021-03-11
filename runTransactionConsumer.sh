@@ -1,0 +1,1 @@
+mvn -Dexec.mainClass=com.ss.hazelcast.SampleApplication.Util.TransactionConsumer exec:java

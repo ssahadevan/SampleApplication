@@ -10,6 +10,7 @@ public class Transaction {
     private double amount;
     private String currency;
     private Merchant merchant;
+    private int fraudScore;
 
     public void Transaction ( long id, Date txndate
             , long accountId
@@ -17,6 +18,7 @@ public class Transaction {
             , double amount
             , String currency
             , Merchant merchant
+            , int fraudScore
     )
     {
         this.id=id;
@@ -26,5 +28,6 @@ public class Transaction {
         this.amount=amount;
         this.currency=currency;
         this.merchant=merchant;
+        this.fraudScore=fraudScore;
     }
 }
