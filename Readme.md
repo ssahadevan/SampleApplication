@@ -16,10 +16,10 @@ __________
 
 #### *To Start the Hazelcast Cluster*
 
-`startMemberNodes.sh`
+`startMemberNodes.sh`    - Starts Jet Member
 
 #### *To Start Hazelcast Client*
-`runHazelclient.sh'
+`runHazelcastclient.sh'
 
 
 #### *To Launch the Web application:*
