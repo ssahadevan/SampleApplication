@@ -12,6 +12,7 @@ import com.ss.hazelcast.SampleApplication.payments.model.Transaction;
 import com.ss.hazelcast.SampleApplication.payments.service.TransactionService;
 
 import java.util.Map;
+import java.util.Random;
 
 public class TransactionConsumer {
 
@@ -77,7 +78,8 @@ public class TransactionConsumer {
                         + ", key is " + key
                         + ", Transactions is " + txn);
             if ( txn != null) {
-                txn.setFraudScore(100);
+                Random random = new Random();
+                txn.setFraudScore(random.nextInt(1000));
                 System.out.println("Fraud Score set ");
                 entry.setValue(txn);
                 // returnValue=true;

@@ -37,7 +37,9 @@
         </rest-api>
     </network>
 
-
+    <properties>
+        <property name="hazelcast.jmx">true</property>
+    </properties>
     <metrics enabled="true">
         <management-center enabled="true">
             <retention-seconds>5</retention-seconds>
