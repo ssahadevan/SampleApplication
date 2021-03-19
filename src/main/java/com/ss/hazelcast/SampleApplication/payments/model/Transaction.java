@@ -16,4 +16,8 @@ public class Transaction implements Serializable {
     private String date;
     private String merchantName;
     private double amount;
+
+    private int fraudScore;
+
+
 }

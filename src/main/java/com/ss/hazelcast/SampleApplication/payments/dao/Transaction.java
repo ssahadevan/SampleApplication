@@ -1,7 +1,14 @@
 package com.ss.hazelcast.SampleApplication.payments.dao;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Date;
 
+@Getter
+@Setter
+@Builder
 public class Transaction {
     private long id ;
     private Date txndate;
@@ -30,4 +37,6 @@ public class Transaction {
         this.merchant=merchant;
         this.fraudScore=fraudScore;
     }
+
+
 }

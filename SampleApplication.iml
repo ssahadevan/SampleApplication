@@ -53,7 +53,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.2.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.2.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.2.7.RELEASE" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.18" level="project" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.16" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-starter-test:2.3.1.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test:2.3.1.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test-autoconfigure:2.3.1.RELEASE" level="project" />
@@ -84,6 +84,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.2.7.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:5.2.7.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.7.0" level="project" />
+    <orderEntry type="library" name="Maven: com.hazelcast:hazelcast-all:4.1.1" level="project" />
     <orderEntry type="library" name="Maven: com.hazelcast.jet:hazelcast-jet:4.4" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:mongo-java-driver:3.12.8" level="project" />
   </component>

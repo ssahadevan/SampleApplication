@@ -16,7 +16,8 @@ __________
 
 #### *To Start the Hazelcast Cluster*
 
-`startMemberNodes.sh`    - Starts Jet Member
+`startMemberNodes.sh`    - Starts IMDG Members
+'startJetNode.sh' - Starts Jet Node
 
 #### *To Start Hazelcast Client*
 `runHazelcastclient.sh'
@@ -58,6 +59,12 @@ Should return 1
 on Mac:
 mongo
 
+#### TransactionConsumer
+
+startJetNode.sh
+run.sh
+addTransactions.sh
+runTransactionConsumer.sh - Will read from TransactionMap and write to Output Map
 
 
 

@@ -6,4 +6,4 @@
 #Updated to start the Jet nodes
 
 
-mvn exec:java -Dexec.mainClass="com.ss.hazelcast.SampleApplication.Util.HazelcastJetMember"
+mvn exec:java -Dexec.mainClass="com.ss.hazelcast.SampleApplication.Util.HazelcastMember"
