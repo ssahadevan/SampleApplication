@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class TransactionController {
 
     private final TransactionService transactionService;
+    private boolean useSet=false;
 
     @Autowired
     public TransactionController(TransactionService transactionService) {
@@ -34,10 +35,30 @@ public class TransactionController {
     /* Adds a Transaction */
     @PostMapping("transactions")
     public String transactions(@RequestBody Transaction transaction, Model model) {
-        transactionService.create(transaction);
+        transactionService.create(transaction, useSet);
         model.addAttribute("transactions", transaction);
         // model.addAttribute("bySalary", Comparator.comparing(Transaction::getSalary));
 
         return "transactions";
+    }
+
+    /* Gets useSet */
+    @GetMapping("isUseSet")
+    public String isUseSet(Model model) {
+        model.addAttribute("message", "useSet=" + useSet);
+        return "index";
+    }
+
+    /* Sets the useSet flag */
+    @PostMapping("setUseSet")
+    public String setUseSet(@RequestBody String inputValue, Model model) {
+        if ( inputValue.contains("true"))
+            useSet=true;
+        else
+            useSet=false;
+
+        System.out.println("this.useSet=" + useSet + ", inputValue = " + inputValue);
+        model.addAttribute("message", "useSet=" + useSet);
+        return "index";
     }
 }

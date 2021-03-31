@@ -8,3 +8,11 @@ curl -X POST http://localhost:8081/transactions -H 'Content-type:application/jso
 
 echo "get the transactions"
 curl http://localhost:8081/transactions
+
+curl  http://localhost:8081/isUseSet
+
+echo "Set useSet"
+curl -X POST http://localhost:8081/setUseSet -H 'Content-type:application/json' -d '{"true"}'
+
+curl  http://localhost:8081/isUseSet
+

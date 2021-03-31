@@ -40,7 +40,7 @@ public class TransactionConsumer {
         p.readFrom(Sources.<String, Transaction >map(transactionCache))
                 .writeTo(Sinks.mapWithEntryProcessor("scoredTxn",
                         entry -> entry.getKey(),
-                        entry -> new IncrementEntryProcessor(entry.getValue() ))
+                        entry -> new IncrementEntryProcessor( entry.getValue() ))
                 );
 
 

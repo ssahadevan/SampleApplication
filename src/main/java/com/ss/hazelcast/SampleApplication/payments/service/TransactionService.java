@@ -34,15 +34,25 @@ public class TransactionService {
 
     }
 
-    public boolean create(Transaction txn)
+    public boolean create(Transaction txn, boolean useSet)
     {
 
         if ( hazelcastClientUtility == null ) {
             hazelcastClientUtility = new HazelcastClientUtility();
         }
-        hazelcastClientUtility.put(transactionMap
-                           , String.valueOf(txn.getId())
-                           , txn );
+
+        if ( useSet) {
+            hazelcastClientUtility.set(transactionMap
+                    , String.valueOf(txn.getId())
+                    , txn);
+        }
+        else
+        {
+            hazelcastClientUtility.put(transactionMap
+                    , String.valueOf(txn.getId())
+                    , txn);
+
+        }
         return true ;
     }
 

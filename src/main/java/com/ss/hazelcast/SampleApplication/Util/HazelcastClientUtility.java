@@ -32,6 +32,7 @@ public class HazelcastClientUtility {
 
     public void put(String nameOfMap , String key , String value) {
         IMap<String, Object> myMap = client.getMap( nameOfMap );
+        System.out.println("Calling map.put");
         myMap.put(key, value);
     }
 
@@ -40,7 +41,23 @@ public class HazelcastClientUtility {
         this.key = key;
         this.value = value;
         IMap<String, Object> myMap = client.getMap( nameOfMap );
+        System.out.println("Calling map.put");
         myMap.put(key, value);
+    }
+
+    public void set(String nameOfMap , String key , String value) {
+        IMap<String, Object> myMap = client.getMap( nameOfMap );
+        System.out.println("Calling map.set");
+        myMap.set(key, value);
+    }
+
+    public void set(String nameOfMap , String key , Object value) {
+        this.nameOfMap = nameOfMap;
+        this.key = key;
+        this.value = value;
+        IMap<String, Object> myMap = client.getMap( nameOfMap );
+        System.out.println("Calling map.set");
+        myMap.set(key, value);
     }
 
 
@@ -51,50 +68,6 @@ public class HazelcastClientUtility {
 
         HazelcastInstance client = HazelcastClient.newHazelcastClient(clientConfig);
         // System.out.println(clientConfig.toString());
-        /* Removed Mongo tests
-        IMap<String, Supplement> supplements = client.getMap("supplements");
-
-        System.out.println("Supplements Size=" +  supplements.size());
-        try {
-            supplements.put("1", new Supplement("bcaa_1", 10));
-            supplements.put("2", new Supplement("protein_2", 100));
-            supplements.put("3", new Supplement("glucosamine_3", 200));
-            supplements.put("4", new Supplement("bcaa_4", 10));
-            supplements.put("5", new Supplement("protein_5", 100));
-            supplements.put("6", new Supplement("glucosamine_6", 200));
-            supplements.put("7", new Supplement("vitaminD_7", 200));
-        }
-        catch (Exception e )
-        {
-            e.printStackTrace();
-        }
-
-        System.out.println(supplements.size());
-
-        supplements.evictAll();
-
-        System.out.println(supplements.size());
-
-        supplements.loadAll(true);
-
-        System.out.println(supplements.size());
-        Supplement supplement=null;
-
-        IMap<String, Supplement> supplementMap = client.getMap("supplements");
-        for ( int k=1; k<= supplements.size() ; k++)
-        {
-            supplement = supplementMap.get(String.valueOf(k));
-            if ( supplement != null) {
-                System.out.println("Supplement is " + supplement.getName()
-                        + ", price =" + supplement.getPrice());
-            }
-        }
-        int size=supplements.size();
-        for ( int i=1; i <= size ; i++) {
-            System.out.println("Deleting " + i );
-            supplements.delete(String.valueOf(i));
-        }
-        */
 
         HazelcastClient.shutdownAll();
     }
