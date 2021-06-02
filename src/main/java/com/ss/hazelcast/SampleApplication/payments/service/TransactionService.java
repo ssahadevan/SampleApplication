@@ -1,5 +1,7 @@
 package com.ss.hazelcast.SampleApplication.payments.service;
 
+import com.hazelcast.config.IndexConfig;
+import com.hazelcast.config.IndexType;
 import com.ss.hazelcast.SampleApplication.Util.HazelcastClientUtility;
 import com.ss.hazelcast.SampleApplication.payments.model.Transaction;
 import org.springframework.stereotype.Service;
@@ -70,4 +72,9 @@ public class TransactionService {
     public String getMapName() {
         return transactionMap;
     }
+
+
+
+
+
 }

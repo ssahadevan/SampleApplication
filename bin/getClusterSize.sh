@@ -1,0 +1,1 @@
+curl -X GET "http://localhost:8081/cluster/memory/getSize?expectedDataSize=200&numberOfBackups=1"
