@@ -63,7 +63,7 @@
 		<dependency>
 			<groupId>com.hazelcast.jet</groupId>
 			<artifactId>hazelcast-jet</artifactId>
-			<version>4.5</version>
+			<version>4.5.4</version>
 		</dependency>
 		<dependency>
 			<groupId>com.hazelcast.jet</groupId>
